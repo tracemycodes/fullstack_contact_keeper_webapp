@@ -10,7 +10,8 @@ const ContactsItem = ({ contact }) => {
 
   const handleOnDelete = (e) => {
     e.preventDefault();
-    deleteContact(id)
+    // console.log(id);
+    deleteContact(id);
   };
 
   return (
