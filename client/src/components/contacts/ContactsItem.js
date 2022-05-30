@@ -4,14 +4,14 @@ import ContactContext from '../../context/contact/contactContext';
 
 const ContactsItem = ({ contact }) => {
   const contactContext = useContext(ContactContext);
-  const { deleteContact } = contactContext;
+  const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
   const { id, name, email, phone, type } = contact;
 
   const handleOnDelete = (e) => {
     e.preventDefault();
-    // console.log(id);
     deleteContact(id);
+    clearCurrent();
   };
 
   return (
@@ -41,7 +41,12 @@ const ContactsItem = ({ contact }) => {
         )}
       </ul>
       <p>
-        <button className='btn-dark btn btn-sm'>Edit</button>
+        <button
+          className='btn-dark btn btn-sm'
+          onClick={() => setCurrent(contact)}
+        >
+          Edit
+        </button>
         <button className='btn-danger btn btn-sm' onClick={handleOnDelete}>
           Delete
         </button>
