@@ -1,35 +1,56 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import ContactContext from '../../context/contact/contactContext';
 
 const ContactsItem = ({ contact }) => {
-  const { name, email, id, phone, type } = contact;
+  const contactContext = useContext(ContactContext);
+  const { deleteContact } = contactContext;
+
+  const { id, name, email, phone, type } = contact;
+
+  const handleOnDelete = (e) => {
+    e.preventDefault();
+    deleteContact(id)
+  };
 
   return (
     <div className='card bg-light'>
       <h3 className='text-primary text-left'>
         {name}{' '}
-        <span style={{float: 'right'}}
+        <span
+          style={{ float: 'right' }}
           className={
-            'badge' + 
+            'badge' +
             (type === 'professional' ? ' badge-success' : ' badge-primary')
           }
         >
           {type.charAt(0).toUpperCase() + type.slice(1)}
         </span>
       </h3>
-      <ul className="list">
-        {email && (<li>
-          <i className="fas fa-envelope-open">{email}</i>
-        </li>)}
-        {phone && (<li>
-          <i className="fas fa-phone">{phone}</i>
-        </li>)}
+      <ul className='list'>
+        {email && (
+          <li>
+            <i className='fas fa-envelope-open'>{email}</i>
+          </li>
+        )}
+        {phone && (
+          <li>
+            <i className='fas fa-phone'>{phone}</i>
+          </li>
+        )}
       </ul>
       <p>
-        <button className="btn-dark btn btn-sm">Edit</button>
-        <button className="btn-danger btn btn-sm">Delete</button>
+        <button className='btn-dark btn btn-sm'>Edit</button>
+        <button className='btn-danger btn btn-sm' onClick={handleOnDelete}>
+          Delete
+        </button>
       </p>
     </div>
   );
+};
+
+ContactsItem.propTypes = {
+  contact: PropTypes.object.isRequired,
 };
 
 export default ContactsItem;
