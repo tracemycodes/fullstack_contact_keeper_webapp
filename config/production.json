@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://tracemycodes:tracemycodes@contactkeeper.5arau.mongodb.net/?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
+}
