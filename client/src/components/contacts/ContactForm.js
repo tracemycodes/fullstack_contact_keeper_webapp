@@ -33,11 +33,11 @@ const ContactForm = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     if (current === null) {
-      addContact(contact);      
+      addContact(contact);
     } else {
-      updateContact(contact)
+      updateContact(contact);
     }
-    handleClear()
+    handleClear();
   };
 
   const handleClear = () => {
@@ -76,6 +76,7 @@ const ContactForm = () => {
         name='type'
         value='personal'
         checked={type === 'personal'}
+        onChange={handleOnChange}
       />{' '}
       Personal{' '}
       <input
@@ -83,6 +84,7 @@ const ContactForm = () => {
         name='type'
         value='professional'
         checked={type === 'professional'}
+        onChange={handleOnChange}
       />{' '}
       Professional
       <div>
