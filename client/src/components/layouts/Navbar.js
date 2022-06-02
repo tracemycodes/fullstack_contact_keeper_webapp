@@ -9,10 +9,12 @@ const Navbar = ({ title, icon }) => {
   const contactContext = useContext(ContactContext);
 
   const { isAuthenticated, logoutUser, user } = authContext;
+  const { clearContacts } = contactContext;
 
   const handleLogout = (e) => {
     e.preventDefault();
     logoutUser();
+    clearContacts();
   };
 
   const authLinks = (
