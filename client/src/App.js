@@ -36,7 +36,6 @@ const App = () => {
                       </PrivateRoute>
                     }
                   />
-                  <Route path='/' element={<Home />} />
                   <Route path='/about' element={<About />} />
                   <Route path='/register' element={<Register />} />
                   <Route path='/login' element={<Login />} />

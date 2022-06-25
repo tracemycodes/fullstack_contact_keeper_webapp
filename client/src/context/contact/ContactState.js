@@ -21,6 +21,7 @@ const ContactState = (props) => {
     contacts: null,
     current: null,
     filtered: null,
+    loading: true,
     error: null,
   };
 
@@ -70,15 +71,12 @@ const ContactState = (props) => {
       },
     };
 
-    console.log('updated');
-
     try {
       const res = await axios.put(
         `/api/contacts/${contact._id}`,
         contact,
         config
       );
-      console.log(res);
       dispatch({ type: UPDATE_CONTACT, payload: res.data });
     } catch (error) {
       dispatch({ type: CONTACT_ERROR, payload: error.response.msg });
@@ -117,6 +115,7 @@ const ContactState = (props) => {
         current: state.current,
         filtered: state.filtered,
         error: state.error,
+        loading: state.loading,
         addContact,
         deleteContact,
         setCurrent,
