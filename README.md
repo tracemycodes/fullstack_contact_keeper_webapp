@@ -2,7 +2,7 @@
 
 - A Full-stack web application that provides a Database that save's all of your professional and personal contact information, with CRUD functionality and responsive design.
 
-**Link to project:** https://github.com/tracemycodes/fullstack_contact_keeper_webapp
+**Link to project:** https://tracemycodes-contact-keeper.herokuapp.com
 
 ![alt tag](./client/src/assets/contact_keeper.gif)
 
