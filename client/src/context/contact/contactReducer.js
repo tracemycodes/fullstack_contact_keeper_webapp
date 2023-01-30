@@ -9,9 +9,9 @@ import {
   CLEAR_FILTER,
   GET_CONTACT,
   CLEAR_CONTACTS,
-} from '../types';
+} from "../types";
 
-export default (state, action) => {
+const contactReducer = (state, action) => {
   switch (action.type) {
     case GET_CONTACT:
       return {
@@ -55,7 +55,7 @@ export default (state, action) => {
       return {
         ...state,
         filtered: state.contacts.filter((item) => {
-          const regex = new RegExp(`${action.payload}`, 'gi');
+          const regex = new RegExp(`${action.payload}`, "gi");
           return item.name.match(regex) || item.email.match(regex);
         }),
       };
@@ -81,3 +81,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default contactReducer;
